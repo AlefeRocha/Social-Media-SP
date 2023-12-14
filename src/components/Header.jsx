@@ -1,9 +1,11 @@
 import styles from "./Header.module.css";
+import devLogo from "../assets/dev-socialmedia-logo.svg";
 
 export function Header() {
     return (
         <header className={styles.header}>
-            <strong>Dev Social Media</strong>
+            <img src={devLogo} alt="Logo of Dev Social Media"/>
+            {/* <strong>Dev Social Media</strong> */}
         </header>
     )
 }
