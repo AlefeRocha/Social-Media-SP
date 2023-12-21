@@ -4,6 +4,43 @@ import { Sidebar } from './components/Sidebar'
 import styles from './App.module.css'
 import './global.css'
 
+// author: { avatar_url: "", name: "", role: ""}
+// publishedAt: Date
+// content: String
+
+const posts = [
+  {
+    id: 1,
+    author: {
+      avatarUrl: 'https://github.com/AlefeRocha.png',
+      name: 'Alefe Rocha',
+      role: 'Fullstack Developer'
+    },
+    content: [
+      { type: 'paragraph', content: 'Eae pessoal!! 🔥' },
+      { type: 'paragraph', content: 'Acabei de criar um projeto e já estou compartilhando com vocês. 🚀' },
+      { type: 'paragraph', content: 'Se quiserem ver, é só entrar no meu github e ver o repositório:' },
+      { type: 'link', content: 'github.com/AlefeRocha', authorLink: 'https://github.com/AlefeRocha'}
+    ],
+    publishedAt: new Date('2023-11-21 21:17:24'),
+  },
+  {
+    id: 2,
+    author: {
+      avatarUrl: 'https://images.unsplash.com/photo-1536164261511-3a17e671d380?q=40&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      name: 'Mayk Brito',
+      role: 'Frontend Developer'
+    },
+    content: [
+      { type: 'paragraph', content: 'Eae pessoal!! 🔥' },
+      { type: 'paragraph', content: 'Acabei de criar um projeto e já estou compartilhando com vocês. 🚀' },
+      { type: 'paragraph', content: 'Se quiserem ver, é só entrar no meu github e ver o repositório:' },
+      { type: 'link', content: 'github.com/AlefeRocha' }
+    ],
+    publishedAt: new Date('2023-11-21 21:17:24'),
+  },
+]
+
 export function App() {
   return (
     <div>
@@ -12,10 +49,16 @@ export function App() {
       <div className={styles.wrapper}>
         <Sidebar />
         <main>
-          <Post
-            author= "Alefe Rocha"
-            content= "Testing the react by Rocketseat"
-          />  
+          {posts.map((post, index) => {
+            return (
+              <Post
+                key={index}
+                author={post.author}
+                content={post.content}
+                publishedAt={post.publishedAt}
+              />
+            )
+          })} 
         </main>
       </div>
     </div>
